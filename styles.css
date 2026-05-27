@@ -1130,4 +1130,10 @@ footer {
   footer { flex-direction:column; text-align:center }
   /* Marquee scrolls faster on mobile */
   .marquee-track { animation-duration:8s }
+  /* Section titles – prevent overflow on small screens */
+  .s-title { font-size:clamp(1.8rem,8vw,2.8rem) }
+  /* FAQ tweaks for mobile */
+  #faq { padding:5rem 5vw }
+  .faq-summary { font-size:1rem; padding:1.4rem 0.3rem }
+  .faq-answer { font-size:.88rem; padding:0 0.3rem 1.4rem }
 }
