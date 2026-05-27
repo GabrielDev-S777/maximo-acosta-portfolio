@@ -435,15 +435,15 @@ nav.s {
 /* name overlay bottom of photo */
 .hero-photo-name {
   position:absolute; bottom:1.5rem; left:1.5rem; right:1.5rem;
-  z-index:2;
+  z-index:10;
 }
 .hero-photo-name .script {
-  font-family:var(--fscript); font-size:2rem;
-  color:var(--cream); text-shadow:0 2px 20px rgba(0,0,0,.6);
+  font-family:var(--fscript); font-size:2.2rem;
+  color:var(--cream); text-shadow:0 2px 20px rgba(0,0,0,.8);
 }
 .hero-photo-name .role {
   font-family:var(--fs); font-size:.65rem; letter-spacing:.2em;
-  text-transform:uppercase; color:var(--blue); margin-top:.25rem;
+  text-transform:uppercase; color:#8fa0ff; margin-top:.25rem;
 }
 
 /* frame count badge */
