@@ -7,10 +7,14 @@
 /* ────────────────────────────────────────────
    LOADER
 ──────────────────────────────────────────── */
-window.addEventListener('load', () => {
+// Dismiss loader when DOM is ready, rather than waiting for all heavy assets (like videos) to load
+document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
-    document.getElementById('loader').classList.add('done');
-  }, 1800);
+    const loader = document.getElementById('loader');
+    if (loader) {
+      loader.classList.add('done');
+    }
+  }, 1000); // 1 second is enough for the intro animation to play nicely
 });
 
 
@@ -173,6 +177,12 @@ document.querySelectorAll('.pc-inner[data-video]').forEach(card => {
   if (!preview) return;
 
   card.addEventListener('mouseenter', () => {
+    // If the video source is not set yet (e.g. hovered before IntersectionObserver triggered), set it now
+    if (!preview.src && preview.dataset.src) {
+      preview.preload = 'metadata';
+      preview.src = preview.dataset.src;
+    }
+
     if (preview.readyState >= 1) {
       preview.currentTime = 0;
     }
@@ -182,6 +192,32 @@ document.querySelectorAll('.pc-inner[data-video]').forEach(card => {
   card.addEventListener('mouseleave', () => {
     preview.pause();
   });
+});
+
+
+/* ────────────────────────────────────────────
+   VIDEO LAZY LOADING (Carga bajo demanda)
+──────────────────────────────────────────── */
+const lazyVideoObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const card = entry.target;
+      const previewVideo = card.querySelector('.pc-preview');
+      if (previewVideo && previewVideo.dataset.src && !previewVideo.src) {
+        // Set preload to metadata and inject src to start loading thumbnail frame
+        previewVideo.preload = 'metadata';
+        previewVideo.src = previewVideo.dataset.src;
+      }
+      observer.unobserve(card);
+    }
+  });
+}, {
+  // Preload videos that are 300px offscreen to the right/left
+  rootMargin: '0px 300px 0px 300px'
+});
+
+document.querySelectorAll('.pc-inner[data-video]').forEach(card => {
+  lazyVideoObserver.observe(card);
 });
 
 
