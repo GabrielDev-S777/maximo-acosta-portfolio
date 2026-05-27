@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maximo Acosta — Editor de Video que Cumple</title>
+  <meta name="description" content="Editor de video profesional para creadores y marcas. 100% de entregas a tiempo. Color, audio y narrativa de nivel superior."/>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Dancing+Script:wght@700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════
+     GRAIN OVERLAY
+     ════════════════════════════════════════════ -->
+<div class="grain"></div>
+
+<!-- Background effects (spotlight and grid) -->
+<div class="bg-effects">
+  <div class="bg-grid"></div>
+  <div class="bg-glow" id="bg-glow"></div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     LOADER
+     ════════════════════════════════════════════ -->
+<div id="loader">
+  <div class="loader-frames">
+    <div class="loader-frame"></div>
+    <div class="loader-frame"></div>
+    <div class="loader-frame"></div>
+    <div class="loader-frame"></div>
+    <div class="loader-frame"></div>
+  </div>
+  <div class="loader-text">Cargando portfolio</div>
+  <div class="loader-bar"></div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     CUSTOM CURSOR
+     ════════════════════════════════════════════ -->
+<div class="cur">
+  <div class="cur-ring"></div>
+  <div class="cur-dot"></div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     NAV
+     ════════════════════════════════════════════ -->
+<nav id="nav">
+  <a href="#presentacion" class="nl">Maximo Acosta</a>
+  <ul class="nm">
+    <li><a href="#presentacion" class="on">Inicio</a></li>
+    <li><a href="#trabajos">Trabajos</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#proceso">Proceso</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <button class="nav-btn" onclick="scroll2('contacto')">Trabajemos juntos</button>
+</nav>
+
+<!-- ════════════════════════════════════════════
+     HERO
+     ════════════════════════════════════════════ -->
+<section id="presentacion">
+  <div class="hero-corner">Editor de Video · Argentina</div>
+  <div class="hero-timecode" id="tc">00:00:00:00</div>
+
+  <!-- Hero Left: Texto principal -->
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-line"></div>
+      <div class="eyebrow-text">Editor de Video Profesional</div>
+    </div>
+    <h1 class="hero-h1">
+      <div class="line"><span class="w">TÚ GRABA.</span></div>
+      <div class="line"><span class="b">YO EDITO.</span></div>
+      <div class="line"><span class="i">tú creces.</span></div>
+    </h1>
+    <p class="hero-tagline">
+      Ayudo a <strong>creadores y marcas</strong> a mejorar su presencia digital con edición profesional. Entregas puntuales, resultados reales.
+    </p>
+    <div class="hero-pills">
+      <span class="pill hot">100% entregas a tiempo</span>
+      <span class="pill">Color grading</span>
+      <span class="pill">Motion graphics</span>
+      <span class="pill">Reels &amp; Shorts</span>
+    </div>
+    <div class="hero-ctas">
+      <a href="#trabajos" class="btn-mag">Ver mi trabajo</a>
+      <a href="#contacto" class="btn-outline">Contáctame</a>
+    </div>
+  </div>
+
+  <!-- Hero Right: Foto -->
+  <div class="hero-right">
+    <div class="hero-frame">
+      <div class="film-top">
+        <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+        <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+        <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+      </div>
+      <div class="hero-photo-box">
+        <img src="maximo-foto.jpg" alt="Maximo Acosta — Editor de Video"/>
+        <div class="hero-photo-name">
+          <div class="script">Maximo Acosta</div>
+          <div class="role">Editor de Video</div>
+        </div>
+        <div class="frame-badge">FRM 001</div>
+        <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,var(--ink) 100%);pointer-events:none"></div>
+      </div>
+      <div class="film-bot">
+        <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+        <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+        <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     MARQUEE
+     ════════════════════════════════════════════ -->
+<div class="marquee-wrap">
+  <div class="marquee-track" id="mq">
+    <!-- Items inyectados por script.js -->
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     NÚMEROS / ESTADÍSTICAS
+     ════════════════════════════════════════════ -->
+<div id="numeros">
+  <div class="num-item rv">
+    <div class="num-value"><span data-c="50">0</span>+</div>
+    <div class="num-label">Proyectos<br>completados</div>
+  </div>
+  <div class="num-item rv d1">
+    <div class="num-value"><span data-c="100">0</span><span>%</span></div>
+    <div class="num-label">Entregas<br>a tiempo</div>
+  </div>
+  <div class="num-item rv d2">
+    <div class="num-value"><span data-c="15">0</span>+</div>
+    <div class="num-label">Creadores<br>activos</div>
+  </div>
+  <div class="num-item rv d3">
+    <div class="num-value"><span data-c="3">0</span></div>
+    <div class="num-label">Años de<br>experiencia</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     TRABAJOS / PORTFOLIO
+     ════════════════════════════════════════════ -->
+<section id="trabajos">
+  <div class="tj-header rv">
+    <div>
+      <div class="s-tag">Portfolio</div>
+      <h2 class="s-title">MIS TRABAJOS</h2>
+      <p class="s-subtitle" style="margin-top:.75rem; color:var(--cream2); font-family:var(--fb); font-size:.95rem; max-width:500px; line-height:1.6; opacity:.7;">Acá te dejo algunos de los proyectos en los que estuve trabajando. Obvio hay muchos más, pero estos son los que más me gustaron.</p>
+    </div>
+    <!-- Pestañas ocultadas temporalmente para unificar la vista
+    <div class="tabs">
+      <button class="tab on" data-t="marca">Marca Personal</button>
+      <button class="tab" data-t="marcas">Empresas</button>
+      <button class="tab" data-t="educ">Educativo</button>
+      <button class="tab" data-t="reels">Reels</button>
+    </div>
+    -->
+  </div>
+
+  <!-- Panel unificado: Mis Trabajos -->
+  <div id="tp-marca" class="tab-panel on">
+    <div class="hscroll-wrap" id="hs1">
+      <div class="hscroll-track">
+
+        <!-- Video 01 -->
+        <div class="pc rv d1">
+          <div class="pc-inner" data-video="videos/dos-autos.mp4">
+            <video class="pc-preview" src="videos/dos-autos.mp4#t=0.001" muted loop playsinline preload="metadata"></video>
+            <div class="pc-glow"></div>
+            <div class="pc-play"><div class="pc-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+          </div>
+          <div class="pc-label">Dos Autos</div>
+        </div>
+
+        <!-- Video 02 -->
+        <div class="pc rv d2">
+          <div class="pc-inner" data-video="videos/hector-ads.mp4">
+            <video class="pc-preview" src="videos/hector-ads.mp4#t=0.001" muted loop playsinline preload="metadata"></video>
+            <div class="pc-glow"></div>
+            <div class="pc-play"><div class="pc-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+          </div>
+          <div class="pc-label">Hector Ads</div>
+        </div>
+
+        <!-- Video 03 -->
+        <div class="pc rv d3">
+          <div class="pc-inner" data-video="videos/integracion-sensorial.mp4">
+            <video class="pc-preview" src="videos/integracion-sensorial.mp4#t=0.001" muted loop playsinline preload="metadata"></video>
+            <div class="pc-glow"></div>
+            <div class="pc-play"><div class="pc-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+          </div>
+          <div class="pc-label">Integración Sensorial</div>
+        </div>
+
+        <!-- Video 04 -->
+        <div class="pc rv d4">
+          <div class="pc-inner" data-video="videos/comida-al-azar.mp4">
+            <video class="pc-preview" src="videos/comida-al-azar.mp4#t=0.001" muted loop playsinline preload="metadata"></video>
+            <div class="pc-glow"></div>
+            <div class="pc-play"><div class="pc-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+          </div>
+          <div class="pc-label">Comida al Azar</div>
+        </div>
+
+        <!-- Video 05 -->
+        <div class="pc">
+          <div class="pc-inner" data-video="videos/la-formula.mp4">
+            <video class="pc-preview" src="videos/la-formula.mp4#t=0.001" muted loop playsinline preload="metadata"></video>
+            <div class="pc-glow"></div>
+            <div class="pc-play"><div class="pc-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+          </div>
+          <div class="pc-label">La Fórmula que Nadie te Da</div>
+        </div>
+
+        <!-- Video 06 (comentado para uso futuro)
+        <div class="pc">
+          <div class="pc-inner" data-video="videos/VIDEO_FUTURO.mp4">
+            <video class="pc-preview" src="videos/VIDEO_FUTURO.mp4#t=0.001" muted loop playsinline preload="metadata"></video>
+            <div class="pc-glow"></div>
+            <div class="pc-play"><div class="pc-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+          </div>
+          <div class="pc-label">Video 06</div>
+        </div>
+        -->
+
+      </div>
+    </div>
+    <div class="scroll-hint rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Arrastra para ver más</div>
+  </div>
+
+  <!-- Paneles secundarios ocultados temporalmente
+  <div id="tp-marcas" class="tab-panel">
+    <div class="hscroll-wrap">
+      <div class="hscroll-track">
+        <div class="pc"><div class="pc-inner"><div class="pc-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Proyecto empresa</span></div><div class="pc-glow"></div><div class="pc-play"><div class="pc-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div></div><div class="pc-label">Empresa 01</div></div>
+        <div class="pc"><div class="pc-inner"><div class="pc-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Proyecto empresa</span></div><div class="pc-glow"></div><div class="pc-play"><div class="pc-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div></div><div class="pc-label">Empresa 02</div></div>
+        <div class="pc"><div class="pc-inner"><div class="pc-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Proyecto empresa</span></div><div class="pc-glow"></div><div class="pc-play"><div class="pc-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div></div><div class="pc-label">Empresa 03</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="tp-educ" class="tab-panel">
+    <div class="hscroll-wrap">
+      <div class="hscroll-track">
+        <div class="pc"><div class="pc-inner"><div class="pc-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg><span>Contenido educativo</span></div><div class="pc-glow"></div><div class="pc-play"><div class="pc-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div></div><div class="pc-label">Educativo 01</div></div>
+        <div class="pc"><div class="pc-inner"><div class="pc-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg><span>Contenido educativo</span></div><div class="pc-glow"></div><div class="pc-play"><div class="pc-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div></div><div class="pc-label">Educativo 02</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="tp-reels" class="tab-panel">
+    <div class="hscroll-wrap">
+      <div class="hscroll-track">
+        <div class="pc"><div class="pc-inner"><div class="pc-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg><span>Reel / Short</span></div><div class="pc-glow"></div><div class="pc-play"><div class="pc-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div></div><div class="pc-label">Reel 01</div></div>
+        <div class="pc"><div class="pc-inner"><div class="pc-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg><span>Reel / Short</span></div><div class="pc-glow"></div><div class="pc-play"><div class="pc-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div></div><div class="pc-label">Reel 02</div></div>
+        <div class="pc"><div class="pc-inner"><div class="pc-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg><span>Reel / Short</span></div><div class="pc-glow"></div><div class="pc-play"><div class="pc-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div></div><div class="pc-label">Reel 03</div></div>
+        <div class="pc"><div class="pc-inner"><div class="pc-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg><span>Reel / Short</span></div><div class="pc-glow"></div><div class="pc-play"><div class="pc-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div></div><div class="pc-label">Reel 04</div></div>
+      </div>
+    </div>
+  </div>
+  -->
+</section>
+
+<!-- ════════════════════════════════════════════
+     POR QUÉ YO
+     ════════════════════════════════════════════ -->
+<section>
+  <div id="porqueyo">
+    <div class="pq-left rv">
+      <div class="s-tag" style="margin-bottom:.6rem">Por qué elegirme</div>
+      <p class="pq-big">
+        Delegar tu edición debería <strong>liberarte</strong>, no preocuparte.
+      </p>
+      <p class="pq-body">
+        Muchos creadores pierden horas corrigiendo entregas tarde, revisando calidad inconsistente o explicando lo mismo cada semana. Trabajo con un sistema claro: entiendo tu estilo una vez, lo replico siempre, y entrego cuando prometí.
+      </p>
+      <a href="#contacto" class="btn-mag" style="display:inline-block">Empecemos hoy</a>
+    </div>
+    <div class="pq-right">
+      <div class="fcard rv d1">
+        <div class="fcard-n">01 — Consistencia</div>
+        <div class="fcard-t">Tu estilo, cada vez</div>
+        <div class="fcard-d">Aprendo tu voz visual desde el primer proyecto. Sin explicar lo mismo dos veces.</div>
+      </div>
+      <div class="fcard rv d2">
+        <div class="fcard-n">02 — Puntualidad</div>
+        <div class="fcard-t">100% de entregas en fecha</div>
+        <div class="fcard-d">No hay "casi listo". Si acordamos el martes, el martes tienes tu video.</div>
+      </div>
+      <div class="fcard rv d3">
+        <div class="fcard-n">03 — Comunicación</div>
+        <div class="fcard-t">Siempre disponible</div>
+        <div class="fcard-d">Respondo rápido, doy updates y te aviso antes de que preguntes.</div>
+      </div>
+      <div class="fcard rv d4">
+        <div class="fcard-n">04 — Calidad</div>
+        <div class="fcard-t">Color, audio y narrativa superior</div>
+        <div class="fcard-d">Cada video pasa por color grading, mezcla de audio y revisión narrativa antes de enviarse.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SERVICIOS
+     ════════════════════════════════════════════ -->
+<section id="servicios">
+  <div class="sv-inner">
+    <div class="sv-header rv">
+      <div class="s-tag">Qué ofrezco</div>
+      <h2 class="s-title">SERVICIOS</h2>
+    </div>
+    <div class="sv-grid">
+      <div class="sv-card rv d1">
+        <div class="sv-num">01</div>
+        <svg class="sv-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M15 10l4.553-2.07A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.89L15 14v-4z"/>
+          <rect x="3" y="6" width="12" height="12" rx="2"/>
+        </svg>
+        <div class="sv-t">Reels &amp; Shorts</div>
+        <div class="sv-d">Edición vertical para Instagram, TikTok y Shorts. Hook en los primeros 3 segundos, ritmo dinámico, retención alta.</div>
+        <div class="sv-tags">
+          <span class="sv-tag">Instagram</span>
+          <span class="sv-tag">TikTok</span>
+          <span class="sv-tag">Shorts</span>
+        </div>
+      </div>
+      <div class="sv-card rv d2">
+        <div class="sv-num">02</div>
+        <svg class="sv-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0"/>
+        </svg>
+        <div class="sv-t">Paquete Mensual</div>
+        <div class="sv-d">Gestión completa de contenido mes a mes. Planificación, edición y entrega sin que tengas que preocuparte por nada.</div>
+        <div class="sv-tags">
+          <span class="sv-tag">Recurrente</span>
+          <span class="sv-tag">Revisiones incluidas</span>
+          <span class="sv-tag">Prioritario</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     PROCESO
+     ════════════════════════════════════════════ -->
+<section id="proceso">
+  <div class="pr-inner">
+    <div class="rv">
+      <div class="s-tag">Cómo trabajo</div>
+      <h2 class="s-title">EL PROCESO</h2>
+    </div>
+    <div class="pr-steps">
+      <div class="pr-step rv d1">
+        <div class="pr-num">01</div>
+        <div>
+          <div class="pr-t">Identidad</div>
+          <div class="pr-d">Me envías el material y me explicas el objetivo. Entiendo tu estilo, tu audiencia y el mensaje que querés comunicar.</div>
+        </div>
+      </div>
+      <div class="pr-step rv d2">
+        <div class="pr-num">02</div>
+        <div>
+          <div class="pr-t">Primera versión</div>
+          <div class="pr-d">Entrego el primer corte en el tiempo acordado. Narrativa, ritmo, color y audio calibrados desde la primera entrega.</div>
+        </div>
+      </div>
+      <div class="pr-step rv d3">
+        <div class="pr-num">03</div>
+        <div>
+          <div class="pr-t">Revisiones</div>
+          <div class="pr-d">Aplico tu feedback hasta que estés 100% conforme. Comunicación rápida por WhatsApp en todo momento.</div>
+        </div>
+      </div>
+      <div class="pr-step rv d4">
+        <div class="pr-num">04</div>
+        <div>
+          <div class="pr-t">Entrega final</div>
+          <div class="pr-d">Exporto en máxima calidad y en los formatos que necesites. Listo para publicar. Sin complicaciones.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     TESTIMONIOS
+     ════════════════════════════════════════════ -->
+<section id="testimonios">
+  <div class="tm-inner">
+    <div class="rv">
+      <div class="s-tag">Testimonios</div>
+      <h2 class="s-title">LO QUE DICEN</h2>
+    </div>
+    <div class="tm-grid">
+      <div class="tm-card rv d1">
+        <div class="tm-stars">
+          <span class="tm-star">★</span><span class="tm-star">★</span><span class="tm-star">★</span><span class="tm-star">★</span><span class="tm-star">★</span>
+        </div>
+        <div class="tm-text">"Venía de renegar con editores que me colgaban a último momento o no entendían mi humor. Con Maxi es otra cosa: le subo los brutos a Drive y me olvido. El loco capta el ritmo al toque, mete los chistes visuales justo donde van y me entrega siempre en fecha. Una masa."</div>
+        <div class="tm-author">Lucas San Román</div>
+        <div class="tm-role">Creador de contenido (150k+ subs)</div>
+      </div>
+      <div class="tm-card rv d2">
+        <div class="tm-stars">
+          <span class="tm-star">★</span><span class="tm-star">★</span><span class="tm-star">★</span><span class="tm-star">★</span><span class="tm-star">★</span>
+        </div>
+        <div class="tm-text">"Mis Reels eran re aburridos y no lograba enganchar a la gente en los primeros segundos. Maxi me cambió el chip. El ritmo que le da con los cortes, la música y los subtítulos dinámicos hizo que mis visitas subieran un montón. Aparte, le decís un cambio y te responde al toque por WhatsApp."</div>
+        <div class="tm-author">Martina D'Amico</div>
+        <div class="tm-role">Founder de Lumina Closet & Creadora</div>
+      </div>
+      <div class="tm-card rv d3">
+        <div class="tm-stars">
+          <span class="tm-star">★</span><span class="tm-star">★</span><span class="tm-star">★</span><span class="tm-star">★</span><span class="tm-star">★</span>
+        </div>
+        <div class="tm-text">"Para nosotros lo más importante era la consistencia visual y los plazos. Con Maxi grabamos las lecciones de los cursos en tanda, se las pasamos y en 48 horas tenemos las versiones definitivas listas para subir. Cero vueltas, edición super pro y corrección de color impecable."</div>
+        <div class="tm-author">Gonzalo Peralta</div>
+        <div class="tm-role">Director de Contenido en Edu Academy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     FAQ (Preguntas Frecuentes)
+     ════════════════════════════════════════════ -->
+<section id="faq">
+  <div class="faq-inner">
+    <div class="rv">
+      <div class="s-tag">Respuestas rápidas</div>
+      <h2 class="s-title">PREGUNTAS FRECUENTES</h2>
+    </div>
+    <div class="faq-accordion rv d1">
+      <details class="faq-item" name="faq-group" open>
+        <summary class="faq-summary">
+          <span>¿Qué tipo de videos editás?</span>
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Me especializo en formato vertical (Reels, TikToks, Shorts) diseñados para captar y retener la atención del usuario en los primeros segundos. También gestiono la edición recurrente a través del Paquete Mensual para creadores y marcas personales que buscan consistencia en su contenido.</p>
+        </div>
+      </details>
+
+      <details class="faq-item" name="faq-group">
+        <summary class="faq-summary">
+          <span>¿Cuánto tiempo tarda una entrega?</span>
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>El plazo estimado varía según el servicio. Para piezas cortas (Reels/Shorts), el tiempo promedio es de 24 a 48 horas una vez recibido el material bruto. Para proyectos mensuales, definimos un calendario de contenido estructurado para que siempre tengas tus videos listos a tiempo.</p>
+        </div>
+      </details>
+
+      <details class="faq-item" name="faq-group">
+        <summary class="faq-summary">
+          <span>¿Cómo es el proceso para trabajar juntos?</span>
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>El proceso consta de cuatro etapas clave: 1) <strong>Identidad:</strong> nos alineamos con tu estilo visual y tus objetivos; 2) <strong>Primera Versión:</strong> edito un corte inicial cuidando ritmo, audio y color; 3) <strong>Revisiones:</strong> pulimos los detalles según tu feedback; 4) <strong>Entrega:</strong> exporto el video final optimizado y listo para publicar.</p>
+        </div>
+      </details>
+
+      <details class="faq-item" name="faq-group">
+        <summary class="faq-summary">
+          <span>¿Qué incluye el Paquete Mensual?</span>
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Es una solución llave en mano que incluye un volumen fijo de videos al mes (por ejemplo, 12 o 15 Reels), línea directa conmigo vía WhatsApp, revisiones incluidas y prioridad en los tiempos de entrega. Es ideal para creadores que quieren desentenderse de la edición y enfocarse en grabar.</p>
+        </div>
+      </details>
+
+      <details class="faq-item" name="faq-group">
+        <summary class="faq-summary">
+          <span>¿Qué pasa si necesito hacer modificaciones a un video?</span>
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Todos mis servicios incluyen rondas de revisiones. Una vez que te entrego la primera versión, me decís qué ajustar (por ejemplo, cortes, ritmo de subtítulos o música) y aplico los cambios rápidamente para asegurarnos de que el resultado sea exactamente lo que buscás.</p>
+        </div>
+      </details>
+
+      <details class="faq-item" name="faq-group">
+        <summary class="faq-summary">
+          <span>¿Cómo te envío los archivos para editar?</span>
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Usamos carpetas compartidas en Google Drive. Simplemente subís el material en bruto (los clips sin editar) y yo me encargo de descargarlo, organizarlo y procesarlo.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     CONTACTO
+     ════════════════════════════════════════════ -->
+<section id="contacto">
+  <!-- Contacto Left: Info -->
+  <div class="ct-left">
+    <div class="s-tag" style="margin-bottom:.6rem">Contacto</div>
+    <p class="ct-big">¿Tenés un proyecto en mente? <br/>Hablemos.</p>
+    <p class="ct-sub">Completa el formulario o escríbeme directo. Respondo en menos de 24 horas.</p>
+    <div class="ct-links">
+      <a href="mailto:macostagloss@gmail.com" class="ct-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+        macostagloss@gmail.com
+      </a>
+      <a href="https://wa.me/5493888663787" target="_blank" class="ct-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        +54 9 3888 66-3787
+      </a>
+      <a href="https://www.instagram.com/maxiacostag?igsh=ZWc5dnUwbDVhZGRu&utm_source=qr" target="_blank" class="ct-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+        @maxiacostag
+      </a>
+    </div>
+  </div>
+
+  <!-- Contacto Right: Formulario -->
+  <div class="ct-right">
+    <form class="ct-form" id="contact-form">
+      <input type="hidden" name="_subject" value="Nuevo mensaje desde el portfolio"/>
+      <div class="fr">
+        <div class="fg">
+          <label for="ct-nombre">Nombre</label>
+          <input type="text" id="ct-nombre" name="nombre" placeholder="Tu nombre" required/>
+        </div>
+        <div class="fg">
+          <label for="ct-email">Email</label>
+          <input type="email" id="ct-email" name="email" placeholder="tu@email.com" required/>
+        </div>
+      </div>
+      <div class="fg">
+        <label for="ct-servicio">Servicio</label>
+        <select id="ct-servicio" name="servicio">
+          <option value="">Selecciona un servicio</option>
+          <option>Reels &amp; Shorts</option>
+          <option>Paquete Mensual</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label for="ct-mensaje">Mensaje</label>
+        <textarea id="ct-mensaje" name="mensaje" placeholder="Contame sobre tu proyecto..." required></textarea>
+      </div>
+      <button type="submit" id="ct-btn" class="ct-submit">Enviar mensaje</button>
+    </form>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════ -->
+<footer>
+  <div class="ft-logo">Maximo Acosta</div>
+  <div class="ft-copy">© 2025 Maximo Acosta. Todos los derechos reservados.</div>
+  <a href="#presentacion" class="ft-up">↑ Volver arriba</a>
+</footer>
+
+<!-- ════════════════════════════════════════════
+     VIDEO LIGHTBOX (Modal inmersivo)
+     ════════════════════════════════════════════ -->
+<div id="video-lightbox" class="vl-overlay">
+  <div class="vl-backdrop"></div>
+  <div class="vl-content">
+    <button class="vl-close" id="vl-close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="vl-video-wrap">
+      <video id="vl-video" controls playsinline></video>
+    </div>
+    <div class="vl-title" id="vl-title"></div>
+  </div>
+</div>
+
+<!-- JavaScript -->
+<script src="script.js"></script>
+</body>
+</html>
